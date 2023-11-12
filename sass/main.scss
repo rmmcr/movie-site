@@ -1,0 +1,267 @@
+$main-color: #ff6600;
+
+@mixin micro-hover {
+  background-color: $main-color;
+}
+
+@mixin slider-control {
+  background-color: #ff6600c5;
+  border-radius: 50%;
+  padding: 0.2em;
+  cursor: pointer;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+p {
+  color: white;
+}
+
+h1 {
+  color: white;
+}
+
+h2 {
+  color: white;
+}
+
+h3 {
+  font-size: 1em;
+  color: white;
+}
+
+.icon {
+  width: 1.6em;
+}
+
+.highlight {
+  color: #ff6600cc;
+  text-decoration: underline;
+}
+
+.highlight:hover {
+  color: $main-color;
+}
+
+.btn {
+  background-color: #ff6600d2;
+  width: fit-content;
+  padding: 0.8em 1.4em;
+  border-radius: 2em;
+}
+
+.btn:hover {
+  background-color: $main-color;
+}
+
+header {
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.85)
+    ),
+    url(../img/header.jpg);
+  // background-blend-mode: overlay;
+  background-size: cover;
+  height: 100vh;
+  padding: 2.6em 6em;
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+      display: flex;
+      align-items: center;
+      gap: 2em;
+
+      .logo {
+        width: 8em;
+      }
+
+      .nav-l {
+        padding-left: 2em;
+        border-left: 2px solid rgb(226, 226, 226);
+      }
+
+      ul {
+        display: flex;
+        align-items: center;
+        gap: 2em;
+        height: 2.6em;
+
+        li {
+          display: flex;
+
+          img {
+            width: 1.6em;
+          }
+
+          .down-icon {
+            width: 0.6em;
+          }
+        }
+
+        #profile {
+          position: relative;
+          gap: 0.8em;
+
+          .profile-img {
+            border-radius: 50%;
+            width: 2em;
+          }
+        }
+
+        .lang-drop {
+          align-items: center;
+          gap: 0.2em;
+          background-color: black;
+          padding: 0.2em 0.6em;
+          border-radius: 0.4em;
+        }
+      }
+    }
+  }
+
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    height: 90%;
+
+    .primary-movie {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6em;
+
+      div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6em;
+
+        // h1 {
+        // }
+        p {
+          font-size: 0.85em;
+        }
+      }
+
+      .audio-container {
+        margin-top: 8%;
+
+        audio {
+          display: none;
+        }
+
+        .audio-player {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 1.4em;
+
+          .play-btn {
+            .play-btn-icon {
+            }
+          }
+
+          .seek-slider {
+            position: relative;
+            background-color: rgba(94, 94, 94, 0.5);
+            display: block;
+            width: 18em;
+            height: 0.25em;
+
+            .seek {
+              background-color: $main-color;
+              height: 100%;
+              width: 0%;
+            }
+          }
+
+          .time-indicator {
+          }
+
+          .volume {
+            .volume-icon {
+              width: 1.2em;
+            }
+          }
+        }
+      }
+    }
+
+    .trending {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      position: relative;
+      left: 10%;
+
+      div {
+        display: flex;
+        align-items: center;
+
+        .slide-l {
+          position: absolute;
+          left: -2em;
+          @include slider-control;
+        }
+
+        .slide-l:hover {
+          @include micro-hover;
+        }
+
+        .slide-r {
+          position: absolute;
+          right: 10em;
+          @include slider-control;
+        }
+
+        .slide-r:hover {
+          @include micro-hover;
+        }
+
+        ul {
+          display: flex;
+          gap: 1em;
+
+          li {
+            text-align: center;
+            cursor: pointer;
+
+            .movie-img {
+              width: 12em;
+              height: 18em;
+              object-fit: cover;
+              opacity: 0.8;
+            }
+
+            .movie-img:hover {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
